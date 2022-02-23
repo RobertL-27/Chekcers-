@@ -13,17 +13,13 @@ def red_normal(matrix,col,row):
         print("Choose where you would like to place your piece")
         y = input()
         x = input()
+        y = int(y)
+        x = int(x)
         if matrix[y][x] != matrix[col-1][row+1] or matrix[y][x] != matrix[col-1][row-1]:
             print("That is not a valid spot. Please choose another spot: ")
         else: break
     
-    while True:
-        print("Choose where you would like to place your piece")
-        y = input()
-        x = input()
-        if matrix[y][x] != matrix[col-1][row+1] or matrix[y][x] != matrix[col-1][row-1]:
-            print("That is not a valid spot. Please choose another spot: ")
-        else: break
+   
     if matrix[y][x] == matrix[col-1][row+1]:
         if matrix[y][x] == 'b ':
             matrix [y][x] = '0 '
@@ -43,10 +39,10 @@ def red_normal(matrix,col,row):
 
 def black_normal(matrix,col,row):
     col = int(col)
-    row = int(col)
+    row = int(row)
     while True:
         if matrix[col][row] != 'b ':
-            print("That is not yor piece. Please choose a different collum and row: ")
+            print("That is not your piece. Please choose a different collum and row: ")
             col = input()
             row = input()
         else:
@@ -56,6 +52,8 @@ def black_normal(matrix,col,row):
         print("Choose where you would like to place your piece")
         y = input()
         x = input()
+        y = int(y)
+        x = int(x)
         if matrix[y][x] != matrix[col+1][row+1] or matrix[y][x] != matrix[col+1][row-1]:
             print("That is not a valid spot. Please choose anohter spot: ")
         else: break
@@ -88,11 +86,12 @@ def main():
                     ['r ', '0 ', 'r ', '0 ', 'r ', '0 ', 'r ', '0 ' ] ]
 
 
-    for i in range(8):
-        for h in range(8):
+    
+    while True:
+        for i in range(8):
+            for h in range(8):
                 print(board[i][h], end='')
         print('\n')
-    while True:
         y=0
         x=0
         print("Red please enter the column and the row for the piece you wish to move")
@@ -108,19 +107,16 @@ def main():
             print("Red has won")
             exit()
 
-
-
         for i in range(8):
             for h in range(8):
                 print(board[i][h], end='')
         print('\n')
-
         y=0
         x=0
         print("Black please enter the column and the row for the piece you wish to move")
         y = input()
         x = input()
-        red_normal(board,y,x)
+        black_normal(board,y,x)
 
         for i in range(8):
             for h in range(8):
