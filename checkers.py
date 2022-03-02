@@ -125,7 +125,12 @@ def main():
             print("Red has won")
             exit()
 
+        print(" ", end="")
+        for a in range(8):
+            print(a, " ", end="")
+        print("\n")
         for i in range(8):
+            print(i, " ", end="")
             for h in range(8):
                 print(board[i][h], end="")
             print("\n")
